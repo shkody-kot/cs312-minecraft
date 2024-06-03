@@ -4,13 +4,12 @@
 wall testing
 
 #get all needed dependencies (docker)
+sudo yum update -y
+sudo yum install -y docker
+sudo adduser minecraft
 
+sudo service docker start
+sudo usermod -aG docker minecraft
 
-#test that it works
-
-
-#create systemd service for starting
-
-
-#create systemd service for stopping
-
+#restart the ssh instance so that new permissions are applied
+exit
