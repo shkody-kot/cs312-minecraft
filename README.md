@@ -48,8 +48,10 @@ Now we can begin to run scripts to set up our Minecraft Server!
 
 ## Creating and Starting the Minecraft Server
 Running the `./spin-up-server.sh` script will provision all necessary AWS infrastructure, configure the instances, and launch the server. Upon execution, it will print out the public IP that users can connect to the server with. The first time you run this script, it will require several user interactions:
+
 	- To provision infrastructure, Terraform will ask if you are sure: type `yes` and hit enter.
 	- On the first SSH login to the EC2 instance, it will ask if you recognize the key: type `yes` and hit enter. 
+
 ### Run-down on the Provisioning Pipeline
 1. Create VPC
 2. Create Subnet
@@ -65,7 +67,10 @@ Running the `./spin-up-server.sh` script will provision all necessary AWS infras
 2. Install Java and create appropriate working directories for the server
 3. Create Minecraft user
 4. Fetch server jar file
-5. 
+5. Run server to create all neccesary files and accept EULA
+6. Create service to start server on system restart/reboot
+7. Create service to stop server on system shutdown 
+8. Print public IP of the server
 
 ### Connecting to the Server
 To connect to the server, open the Minecraft client, and select version 1.20.6 (latest version at the time of me writing this). Click `Play`. Once the client loads, select `Multiplayer`. There are two options: Direct Connect, or Create New Server. Both work, but Direct Connect is less steps so that's the one I will describe.
