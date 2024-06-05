@@ -7,8 +7,8 @@ sudo su
 #try manual mode
 mkdir -p /opt/minecraft/server
 cd /opt/minecraft/server
-wget https://piston-data.mojang.com/v1/objects/145ff0858209bcfc164859ba735d4199aafa1eea/server.jar
-java -Xmx1024M -Xms1024M -jar server.jar nogui
+wget https://piston-data.mojang.com/v1/objects/145ff0858209bcfc164859ba735d4199aafa1eea/server.jar > /dev/null 2>&1
+java -Xmx1024M -Xms1024M -jar server.jar nogui > /dev/null 2>&1
 sleep 60
 
 sed -i 's/false/true/p' eula.txt
@@ -33,14 +33,11 @@ printf '[Unit]\nDescription=Minecraft Server on start-up\nWants=network-online.t
 #create service to terminate container on stop
 touch minecraft-stop.service
 #printf '[Unit]\nDescription=Stop server on shutdown\nBefore=halt.target shutdown.target reboot.target\n[Service]\nType=oneshot\nExecStart=/usr/bin/docker stop mc\n[Install]\nWantedBy=halt.target shutdown.target reboot.target' > minecraft-stop.service
-printf '[Unit]\nDescription=Stop server\nBefore=shutdown.target\n[Service]\nUser=minecraft\nWorkingDirectory=/opt/minecraft/server\nExecStart=/opt/minecraft/server/stop\nStandardInput=null\n[Install]\nWantedBy=multi-user.target' >minecraft-stop.service
+printf '[Unit]\nDescription=Stop server\nBefore=shutdown.target\n[Service]\nUser=minecraft\nWorkingDirectory=/opt/minecraft/server\nExecStart=/opt/minecraft/server/stop\nStandardInput=null\n[Install]\nWantedBy=multi-user.target' > minecraft.stop.service
 
 #start and enable the services
 systemctl daemon-reload
-systemctl enable minecraft-stop.service
+systemctl enable minecraft.stop.service
 systemctl enable minecraft.service
 systemctl start minecraft.service
 
-#test
-systemctl status minecraft
-systemctl status minecraft-stop

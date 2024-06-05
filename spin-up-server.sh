@@ -14,3 +14,4 @@ ssh -i "minecraft-automation.pem" ec2-user@$ip 'bash -s' < setup.sh
 
 ssh -i "minecraft-automation.pem" ec2-user@$ip 'bash -s' < server.sh
 
+echo Public IP: $ip
