@@ -32,15 +32,15 @@ The next steps are required for both manual installation and script installation
 1. In the AWS Learner Lab, start the lab
 2. When it starts, click on AWS Details
 3. Click on `Show CLI`
-4. Copy all three tokens: there should be `aws_session_key_id`, `aws_secret_key` and `aws_session_token`
+4. Copy all three tokens: there should be `aws_access_key_id`, `aws_secret_access_key` and `aws_session_token`
 5. In your terminal, run `mkdir ~/.aws` if the directory is not already present.
 6. Run `touch ~/.aws/credentials`
 7. Edit the file: `vim ~/.aws/credentials`
 8. Ensure the first line says `[default]` then paste the three tokens we copied earlier underneath. the file should look something like this:
 ```
 [default]
-aws_session_key_id=AAAAAAAAAAAAAAAAAA
-aws_secret_key=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aws_access_key_id=AAAAAAAAAAAAAAAAAA
+aws_secret_access_key=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 aws_session_token=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaverylongstring
 ```
 
