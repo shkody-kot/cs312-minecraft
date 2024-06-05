@@ -27,7 +27,8 @@ Before running any of the provided scripts, it's important to properly configure
 	- Run `mv minecraft-automation minecraft-automation.pem`
 	- Run `chmod 400 minecraft-automation.pem` to ensure correct permissions on the key. 
 <br>
-The next steps are required for both manual installation and script installation, since they help you set up your AWS credentials such that the provisioning scripts function correctly. 
+The next steps are required for both manual installation and script installation, since they help you set up your AWS credentials such that the provisioning scripts function correctly.
+
 1. In the AWS Learner Lab, start the lab
 2. When it starts, click on AWS Details
 3. Click on `Show CLI`
